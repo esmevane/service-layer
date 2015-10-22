@@ -1,0 +1,27 @@
+# Logfile created on 2015-10-22 10:39:47 -0500 by logger.rb/47272
+W, [2015-10-22T10:54:40.516082 #16563]  WARN -- : No running service found
+W, [2015-10-22T10:54:41.989672 #16588]  WARN -- : No running service found
+W, [2015-10-22T10:55:20.310485 #16642]  WARN -- : No running service found
+I, [2015-10-22T10:55:20.310566 #16642]  INFO -- : Starting service
+W, [2015-10-22T10:55:47.617423 #16726]  WARN -- : No running service found
+W, [2015-10-22T10:55:50.941898 #16751]  WARN -- : No running service found
+I, [2015-10-22T10:55:57.898249 #16751]  INFO -- : Starting service
+W, [2015-10-22T10:57:58.294795 #16814]  WARN -- : No running service found
+I, [2015-10-22T10:57:58.294891 #16814]  INFO -- : Starting service
+W, [2015-10-22T10:58:00.636503 #16841]  WARN -- : No running service found
+I, [2015-10-22T10:58:00.636607 #16841]  INFO -- : Starting service
+W, [2015-10-22T10:58:01.910306 #16868]  WARN -- : No running service found
+I, [2015-10-22T10:58:01.910400 #16868]  INFO -- : Starting service
+W, [2015-10-22T10:58:14.350023 #16896]  WARN -- : No running service found
+W, [2015-10-22T11:01:08.424680 #17434]  WARN -- : No running service found
+I, [2015-10-22T11:01:10.650644 #17459]  INFO -- : Starting service
+W, [2015-10-22T11:01:18.309574 #17487]  WARN -- : No running service found
+I, [2015-10-22T11:01:21.234575 #17512]  INFO -- : Service already running, PID 17461
+I, [2015-10-22T11:01:25.769117 #17537]  INFO -- : Service stopped, PID 17461
+I, [2015-10-22T11:01:27.807060 #17562]  INFO -- : Starting service
+W, [2015-10-22T11:02:02.900590 #17595]  WARN -- : No running service found
+W, [2015-10-22T11:02:45.292646 #17623]  WARN -- : No running service found
+I, [2015-10-22T11:02:47.427371 #17652]  INFO -- : []
+I, [2015-10-22T11:02:51.184070 #17677]  INFO -- : {}
+I, [2015-10-22T11:03:01.299851 #17727]  INFO -- : {}
+I, [2015-10-22T11:03:31.143895 #17780]  INFO -- : Service stopped, PID 17564
