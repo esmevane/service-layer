@@ -31,6 +31,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "grape", "~> 0.12"
   spec.add_dependency "grape-entity", "~> 0.4"
   spec.add_dependency "thor", "~> 0.19"
+  spec.add_dependency "gossamer", "~> 0.1"
+  spec.add_dependency "thin", "~> 1.6"
 
   spec.add_development_dependency "bundler", "~> 1.8"
   spec.add_development_dependency "pry", "~> 0.10"
@@ -38,5 +40,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.3"
   spec.add_development_dependency "rack-test", "~> 0.6"
   spec.add_development_dependency "simplecov", "~> 0.10"
+  spec.add_development_dependency "ruby-prof", "~> 0.15"
 
 end

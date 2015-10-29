@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 # There's a bit of stub wizardry in place here for the #start and #stop methods,
-# which ensures that the service does not spin up a WEBrick process or split
+# which ensures that the service does not spin up a Thin process or split
 # itself off into another daemonized process during testing.  The splitting off
 # behavior is stubbed because it produces some surreal behavior with the
 # service itself: creating processes that live beyond the tests, which are
@@ -65,7 +65,7 @@ describe ServiceLayer::Service do
     before do
       allow(ServiceLayer).to receive(:ensure_connections).and_yield
       allow(Daemons).to receive(:daemonize)
-      allow(Rack::Handler::WEBrick).to receive(:run)
+      allow(Rack::Handler::Thin).to receive(:run)
     end
 
     context 'if #running? is true' do
@@ -77,7 +77,7 @@ describe ServiceLayer::Service do
       end
 
       it "does not attempt to spin up a new service" do
-        expect(Rack::Handler::WEBrick).not_to receive(:run)
+        expect(Rack::Handler::Thin).not_to receive(:run)
         subject
       end
     end
@@ -91,7 +91,7 @@ describe ServiceLayer::Service do
       end
 
       it "attempts to spin up a new service" do
-        expect(Rack::Handler::WEBrick).to receive(:run)
+        expect(Rack::Handler::Thin).to receive(:run)
         subject
       end
     end

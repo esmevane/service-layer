@@ -16,6 +16,7 @@ module ServiceLayer
     config.app_env = ENV.fetch("APP_ENV", "development")
     config.app_dir = ENV.fetch("APP_DIR", nil) || Dir.pwd
     config.verbose = ENV.fetch("APP_VERBOSE", true)
+    config.debug   = ENV.fetch("APP_DEBUG", false)
 
     config.log_dir = ENV.fetch("LOG_DIR") do
       Dir.mkdir('log') unless Dir.exist?('log')

@@ -36,7 +36,7 @@ module ServiceLayer
       app    = build_app
 
       ServiceLayer.ensure_connections { Daemons.daemonize(daemon) }
-      Rack::Handler::WEBrick.run app
+      Rack::Handler::Thin.run app, Host: '0.0.0.0', Port: '8080'
     end
 
     def stop
@@ -62,11 +62,16 @@ module ServiceLayer
     # from actually daemonizing.  It helps a ton with debugging.
     #
     def build_daemon
-      {
+      base = {
         app_name: name,
         dir_mode: :normal,
         dir:      dir
       }.merge(daemon)
+
+      base.tap do |hash|
+        base[:ontop] = true if ServiceLayer.config.debug
+      end
+
     end
 
   end
