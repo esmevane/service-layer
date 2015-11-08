@@ -18,6 +18,10 @@ end
 require 'rack/test'
 require 'service_layer'
 
+ServiceLayer.configure do |config|
+  config.app_env = 'test'
+end
+
 RSpec.configure do |config|
   config.include Rack::Test::Methods, type: :api
 end

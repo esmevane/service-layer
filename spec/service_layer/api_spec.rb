@@ -25,9 +25,9 @@ describe ServiceLayer::Api, type: :api do
     end
   end
 
-  describe "PUT '/:id'" do
+  describe "PATCH '/:id'" do
     it "responds with '200' OK" do
-      put "/123", { params: "stuff here" }
+      patch "/123", { params: "stuff here" }
       expect(last_response.status).to eq 200
     end
   end

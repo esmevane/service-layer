@@ -1,3 +1,5 @@
+require 'bundler/setup'
+require 'i18n'
 require "service_layer/version"
 
 module ServiceLayer
@@ -8,22 +10,6 @@ module ServiceLayer
   autoload :Logger,        'service_layer/logger'
   autoload :Messaging,     'service_layer/messaging'
   autoload :Service,       'service_layer/service'
-
-  extend Configuration
-
-  configure do |config|
-    config.app_uri = ENV.fetch("APP_URI", "http://localhost:8080")
-    config.app_env = ENV.fetch("APP_ENV", "development")
-    config.app_dir = ENV.fetch("APP_DIR", nil) || Dir.pwd
-    config.verbose = ENV.fetch("APP_VERBOSE", true)
-    config.debug   = ENV.fetch("APP_DEBUG", false)
-
-    config.log_dir = ENV.fetch("LOG_DIR") do
-      Dir.mkdir('log') unless Dir.exist?('log')
-
-      'log'
-    end
-  end
 
   # Any time a service is launched in daemonized mode, it drops all file or
   # persistence connections, which can be hell for logging or debugging.  Any
@@ -41,5 +27,26 @@ module ServiceLayer
   def self.logger
     @logger ||= Logger.new
   end
+
+  extend Configuration
+
+  configure do |config|
+    config.app_uri = ENV.fetch("APP_URI", "http://localhost:8080")
+    config.app_env = ENV.fetch("APP_ENV", "development")
+    config.app_dir = ENV.fetch("APP_DIR", nil) || Dir.pwd
+    config.verbose = ENV.fetch("APP_VERBOSE", true)
+    config.debug   = ENV.fetch("APP_DEBUG", false)
+
+    config.log_dir = ENV.fetch("LOG_DIR") do
+      Dir.mkdir('log') unless Dir.exist?('log')
+
+      'log'
+    end
+
+    config.config_dir     = File.join(config.app_dir, "config")
+    config.token_strategy = -> token { nil }
+  end
+
+  I18n.load_path += Dir.glob(File.join(config.config_dir, "locales/*.yml"))
 
 end

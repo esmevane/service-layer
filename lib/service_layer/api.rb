@@ -8,26 +8,30 @@ module ServiceLayer
   # objects yourself.
   #
   class Api < Grape::API
+    autoload :Authentication, 'service_layer/api/authentication'
+
     format :json
 
     get do
       []
     end
 
-    get(":id") do
-      {}
-    end
-
     post do
       {}
     end
 
-    put(":id") do
-      {}
-    end
+    route_param(:id) do
+      get do
+        {}
+      end
 
-    delete(":id") do
-      {}
+      patch do
+        {}
+      end
+
+      delete do
+        {}
+      end
     end
   end
 end
